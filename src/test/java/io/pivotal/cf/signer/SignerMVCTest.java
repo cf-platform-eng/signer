@@ -38,8 +38,8 @@ public class SignerMVCTest {
     }
 
     @Test
-    public void testGetQuote() throws Exception {
-        mockMvc.perform(get("/testMe"))
+    public void testSign() throws Exception {
+        mockMvc.perform(get("/signer/testMe"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(contentType))
                 .andExpect(content().string("26398d3eb98deb0d1980859b762128f59151e393649afc889c012f2507a41825"));
