@@ -14,8 +14,4 @@ public class CloudConfig extends AbstractCloudConfig {
         return connectionFactory().service("fusion", FusionRepository.class);
     }
 
-//    @Bean
-//    public Properties cloudProperties() {
-//        return properties();
-//    }
 }

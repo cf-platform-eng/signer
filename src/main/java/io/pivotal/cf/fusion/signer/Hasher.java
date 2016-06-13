@@ -4,9 +4,9 @@ import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.stereotype.Service;
 
 @Service
-public class Signer {
+class Hasher {
 
-    public String sign(String entry) {
+    String hash(String entry) {
         return DigestUtils.sha256Hex(entry);
     }
 }

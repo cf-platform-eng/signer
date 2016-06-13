@@ -4,11 +4,13 @@ import feign.Headers;
 import feign.RequestLine;
 import org.springframework.stereotype.Repository;
 
+import java.util.Map;
+
 @Repository
 public interface FusionRepository {
 
     @Headers("Content-Type: application/json")
-    @RequestLine("GET /create-user")
-    void getUser();
+    @RequestLine("POST /signature")
+    Map<String, Object> signature(String base64EncodedDataHash);
 
 }
