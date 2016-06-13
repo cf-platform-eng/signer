@@ -1,4 +1,4 @@
-package io.pivotal.cf.signer;
+package io.pivotal.cf.fusion.signer;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;

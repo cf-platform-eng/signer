@@ -1,5 +1,6 @@
-package io.pivotal.cf.signer;
+package io.pivotal.cf.fusion.connector;
 
+import io.pivotal.cf.fusion.signer.FusionRepository;
 import org.apache.log4j.Logger;
 import org.springframework.cloud.service.AbstractServiceConnectorCreator;
 import org.springframework.cloud.service.ServiceConnectorConfig;

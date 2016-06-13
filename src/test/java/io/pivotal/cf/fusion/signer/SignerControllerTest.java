@@ -1,4 +1,4 @@
-package io.pivotal.cf.signer;
+package io.pivotal.cf.fusion.signer;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,1 +1,1 @@
-io.pivotal.cf.signer.FusionCFServiceInfoCreator
+io.pivotal.cf.fusion.connector.FusionCFServiceInfoCreator

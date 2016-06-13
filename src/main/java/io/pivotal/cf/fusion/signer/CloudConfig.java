@@ -1,4 +1,4 @@
-package io.pivotal.cf.signer;
+package io.pivotal.cf.fusion.signer;
 
 import org.springframework.cloud.config.java.AbstractCloudConfig;
 import org.springframework.context.annotation.Bean;

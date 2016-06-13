@@ -1,4 +1,4 @@
-package io.pivotal.cf.signer;
+package io.pivotal.cf.fusion.signer;
 
 import feign.Headers;
 import feign.RequestLine;

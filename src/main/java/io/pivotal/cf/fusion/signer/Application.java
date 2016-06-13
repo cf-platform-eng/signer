@@ -1,4 +1,4 @@
-package io.pivotal.cf.signer;
+package io.pivotal.cf.fusion.signer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

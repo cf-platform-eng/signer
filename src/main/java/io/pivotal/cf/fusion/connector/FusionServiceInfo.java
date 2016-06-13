@@ -1,4 +1,4 @@
-package io.pivotal.cf.signer;
+package io.pivotal.cf.fusion.connector;
 
 import org.springframework.cloud.service.UriBasedServiceInfo;
 

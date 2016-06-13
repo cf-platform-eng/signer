@@ -1,8 +1,9 @@
-package io.pivotal.cf.signer;
+package io.pivotal.cf.fusion.connector;
 
 import feign.Feign;
 import feign.gson.GsonDecoder;
 import feign.gson.GsonEncoder;
+import io.pivotal.cf.fusion.signer.FusionRepository;
 import org.apache.log4j.Logger;
 
 import java.net.URL;
