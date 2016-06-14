@@ -11,7 +11,7 @@ public class FusionRepositoryConnectionCreator extends AbstractServiceConnectorC
 
     @Override
     public FusionRepository create(FusionServiceInfo serviceInfo, ServiceConnectorConfig serviceConnectorConfig) {
-        LOG.info("creating fusion repo wth uri: " + serviceInfo.getUri());
-        return new FusionRepositoryFactory().create(serviceInfo.getUri());
+        LOG.debug("creating fusion repo wth service info: " + serviceInfo);
+        return new FusionRepositoryFactory().create(serviceInfo);
     }
 }

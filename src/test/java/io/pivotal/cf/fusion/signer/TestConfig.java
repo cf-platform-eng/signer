@@ -1,6 +1,7 @@
 package io.pivotal.cf.fusion.signer;
 
 import feign.Feign;
+import feign.auth.BasicAuthRequestInterceptor;
 import feign.gson.GsonDecoder;
 import feign.gson.GsonEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,10 +30,11 @@ public class TestConfig {
     public FusionRepository fusionRepository() {
         return Feign.builder()
                 .encoder(new GsonEncoder()).decoder(new GsonDecoder())
+                .requestInterceptor(new BasicAuthRequestInterceptor(env.getProperty("userId"), env.getProperty("userPw")))
                 .target(FusionRepository.class, getUri());
     }
 
     private String getUri() {
-        return "http://" + env.getProperty("userId") + ":" + env.getProperty("userPw") + "@" + env.getProperty("fusionHost") + ":" + env.getProperty("fusionPort");
+        return "http://" + env.getProperty("fusionHost") + ":" + env.getProperty("fusionPort");
     }
 }

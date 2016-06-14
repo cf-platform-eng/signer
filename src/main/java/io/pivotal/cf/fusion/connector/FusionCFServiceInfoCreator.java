@@ -21,7 +21,9 @@ public class FusionCFServiceInfoCreator extends CloudFoundryServiceInfoCreator<F
         Map<String, Object> credentials = getCredentials(serviceData);
         String id = getId(serviceData);
         String uri = getUriFromCredentials(credentials);
+        String username = credentials.get("username").toString();
+        String password = credentials.get("password").toString();
 
-        return new FusionServiceInfo(id, uri);
+        return new FusionServiceInfo(id, uri, username, password);
     }
 }

@@ -1,16 +1,43 @@
 package io.pivotal.cf.fusion.connector;
 
-import org.springframework.cloud.service.UriBasedServiceInfo;
+import org.apache.commons.lang.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang.builder.ToStringStyle;
+import org.springframework.cloud.service.ServiceInfo;
 
-public class FusionServiceInfo extends UriBasedServiceInfo {
+public class FusionServiceInfo implements ServiceInfo {
 
-    public static final String URI_SCHEME = "http";
+    static final String URI_SCHEME = "http";
 
-    public FusionServiceInfo(String id, String host, int port, String username, String password, String greeting) {
-        super(id, URI_SCHEME, host, port, username, password, greeting);
+    private String uri;
+    private String username;
+    private String password;
+    private String id;
+
+    public FusionServiceInfo(String id, String uri, String username, String password) {
+        this.id = id;
+        this.uri = uri;
+        this.username = username;
+        this.password = password;
     }
 
-    public FusionServiceInfo(String id, String uri) {
-        super(id, uri);
+    public String getUri() {
+        return uri;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
+    public String getId() {
+        return id;
+    }
+
+    public String toString() {
+        return ReflectionToStringBuilder.toString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 }

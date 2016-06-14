@@ -6,7 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.Map;
+
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = {Application.class})
@@ -17,6 +20,11 @@ public class SignerControllerTest {
 
     @Test
     public void testSigner() {
-        assertEquals("9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08", signerController.sign("test"));
+        Map<String, Object> resp = signerController.sign("test");
+        assertNotNull(resp);
+        assertEquals(3, resp.size());
+        assertNotNull(resp.get("signatureUUID"));
+        assertEquals("test", resp.get("entry"));
+        assertEquals("n4bQgYhMfWWaL+qgxVrQFaO/TxsrC4Is0V1sFbDwCgg=", resp.get("encodedHash"));
     }
 }
