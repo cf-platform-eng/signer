@@ -16,6 +16,16 @@ import java.util.Properties;
 @PropertySource("classpath:test.properties")
 public class TestConfig {
 
+    @Bean
+    public String uuid() {
+        return env.getProperty("uuid");
+    }
+
+    @Bean
+    public String hash() {
+        return env.getProperty("hash");
+    }
+
     @Autowired
     private Environment env;
 

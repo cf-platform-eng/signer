@@ -1,16 +1,13 @@
 package io.pivotal.cf.fusion.signer;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/signer")
 class SignerController {
 
     @Autowired
@@ -19,7 +16,7 @@ class SignerController {
     @Autowired
     private FusionRepository fusionRepository;
 
-    @RequestMapping(value = "/{entry}", method = RequestMethod.GET, produces = "application/json; charset=UTF-8")
+    @RequestMapping(value = "/sign/{entry}", method = RequestMethod.GET, produces = "application/json; charset=UTF-8")
     Map<String, Object> sign(@PathVariable String entry) {
         if (entry == null || entry.length() < 1) {
             return null;
@@ -36,5 +33,32 @@ class SignerController {
         response.put("encodedHash", encodedHash);
 
         return response;
+    }
+
+    @RequestMapping(value = "/provenance/{uuid}", method = RequestMethod.GET, produces = "application/json; charset=UTF-8")
+    List<Object> provenance(@PathVariable String uuid) {
+        if (uuid == null || uuid.length() < 1) {
+            return null;
+        }
+
+        return fusionRepository.provenance(uuid);
+    }
+
+    @RequestMapping(value = "/signature/{uuid}", method = RequestMethod.GET, produces = "application/json; charset=UTF-8")
+    Map<String, Object> signature(@PathVariable String uuid) {
+        if (uuid == null || uuid.length() < 1) {
+            return null;
+        }
+
+        return fusionRepository.signature(uuid);
+    }
+
+    @RequestMapping(value = "/verification", method = RequestMethod.POST, produces = "application/json; charset=UTF-8")
+    Map<String, Object> verification(@RequestBody Map<String, Object> request) {
+        if (request == null) {
+            return null;
+        }
+
+        return fusionRepository.verify(request);
     }
 }
