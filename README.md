@@ -1,3 +1,5 @@
+# signer is no longer actively maintained by VMware.
+
 # signer
 A small app to demo the fusion API, as provided via the Guardtime Fusion service broker.
 
